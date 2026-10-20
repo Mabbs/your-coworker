@@ -1,0 +1,809 @@
+{
+ "controller": "PoseA_Controller",
+ "source": "PoseA_Controller.controller",
+ "params": [
+  {
+   "name": "click",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "Keyboard",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "Touch",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "Talking",
+   "type": "bool",
+   "default": false
+  },
+  {
+   "name": "Mood",
+   "type": "float",
+   "default": 0
+  }
+ ],
+ "layers": [
+  {
+   "name": "Base Layer",
+   "mode": "override",
+   "defaultWeight": 0,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102724804207875695",
+     "name": "Motion_Idle",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": false,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Motion_Idle",
+      "asset": "Motion_Idle",
+      "loop": true,
+      "duration": 2,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101618682377417806",
+       "destination": "Face_Work",
+       "destinationId": "1102703437598541787",
+       "conditions": [
+        {
+         "parameter": "Keyboard",
+         "mode": "if",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.8485881,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.2942605,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102703437598541787",
+     "name": "Face_Work",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": false,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Face_Work",
+      "asset": "Face_Work",
+      "loop": true,
+      "duration": 2,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101884547391421755",
+       "destination": "Motion_Idle",
+       "destinationId": "1102724804207875695",
+       "conditions": [],
+       "exitTime": 0.85566837,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.28712225,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 2,
+       "orderedInterruption": true
+      }
+     ]
+    }
+   ],
+   "statePositions": {
+    "1102724804207875695": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "1102703437598541787": {
+     "x": 250,
+     "y": 0,
+     "z": 0
+    }
+   },
+   "defaultState": "Motion_Idle",
+   "anyStateTransitions": [
+    {
+     "id": "1101730242686860875",
+     "destination": "Face_Work",
+     "destinationId": "1102703437598541787",
+     "conditions": [
+      {
+       "parameter": "click",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.970086,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.0556525,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    }
+   ],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "Layer 1",
+   "mode": "additive",
+   "defaultWeight": 1,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102061268324235159",
+     "name": "New State",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "none"
+     },
+     "behaviours": [],
+     "transitions": []
+    },
+    {
+     "id": "1102587765826080250",
+     "name": "Touch_Chest",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Touch_Chest",
+      "asset": "Touch_Chest",
+      "loop": false,
+      "duration": 0.73333335,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101709867586078768",
+       "destination": "New State",
+       "destinationId": "1102061268324235159",
+       "conditions": [],
+       "exitTime": 0.9655909,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.025233328,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    }
+   ],
+   "statePositions": {
+    "1102061268324235159": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "1102587765826080250": {
+     "x": 250,
+     "y": 0,
+     "z": 0
+    }
+   },
+   "defaultState": "New State",
+   "anyStateTransitions": [
+    {
+     "id": "1101243736805655561",
+     "destination": "Touch_Chest",
+     "destinationId": "1102587765826080250",
+     "conditions": [
+      {
+       "parameter": "Touch",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.9343087,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.06569129,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    }
+   ],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "Motion",
+   "mode": "override",
+   "defaultWeight": 1,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102025901758691103",
+     "name": "New State",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "none"
+     },
+     "behaviours": [],
+     "transitions": []
+    },
+    {
+     "id": "1102985305603660343",
+     "name": "Click_Mouse",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Click_Mouse",
+      "asset": "Click_Mouse",
+      "loop": false,
+      "duration": 0.8,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101705390221481576",
+       "destination": "New State",
+       "destinationId": "1102025901758691103",
+       "conditions": [],
+       "exitTime": 0.87758726,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.09813017,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102977153420339851",
+     "name": "Click_Keyboard_TwoHand",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Click_Keyboard_TwoHand",
+      "asset": "Click_Keyboard_TwoHand",
+      "loop": false,
+      "duration": 0.6666667,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101336590748365959",
+       "destination": "New State",
+       "destinationId": "1102025901758691103",
+       "conditions": [],
+       "exitTime": 0.47699013,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.34900656,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    }
+   ],
+   "statePositions": {
+    "1102025901758691103": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "1102985305603660343": {
+     "x": 250,
+     "y": 0,
+     "z": 0
+    },
+    "1102977153420339851": {
+     "x": 0,
+     "y": 100,
+     "z": 0
+    }
+   },
+   "defaultState": "New State",
+   "anyStateTransitions": [
+    {
+     "id": "1101589667821646929",
+     "destination": "Click_Mouse",
+     "destinationId": "1102985305603660343",
+     "conditions": [
+      {
+       "parameter": "click",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.85884786,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.09443474,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    },
+    {
+     "id": "1101372920208702427",
+     "destination": "Click_Keyboard_TwoHand",
+     "destinationId": "1102977153420339851",
+     "conditions": [
+      {
+       "parameter": "Keyboard",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.89039075,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.07340616,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    }
+   ],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "TailLoop",
+   "mode": "override",
+   "defaultWeight": 1,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102161607090078389",
+     "name": "Tail_Loop",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Tail_Loop",
+      "asset": "Tail_Loop",
+      "loop": true,
+      "duration": 2,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": []
+    }
+   ],
+   "statePositions": {
+    "1102161607090078389": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    }
+   },
+   "defaultState": "Tail_Loop",
+   "anyStateTransitions": [],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "Mood",
+   "mode": "override",
+   "defaultWeight": 1,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102313026266067498",
+     "name": "Mood_BlendTree",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "blendTree",
+      "id": "206621510681728303",
+      "name": "Blend Tree",
+      "parameter": "Mood",
+      "blendType": "simple1d",
+      "minThreshold": 0,
+      "maxThreshold": 3,
+      "children": [
+       {
+        "threshold": 0,
+        "timeScale": 1,
+        "position": {
+         "x": 0,
+         "y": 0
+        },
+        "clip": {
+         "name": "Mood/Default",
+         "asset": "Mood_Default",
+         "loop": true,
+         "duration": 2,
+         "available": true
+        }
+       },
+       {
+        "threshold": 1,
+        "timeScale": 1,
+        "position": {
+         "x": 0,
+         "y": 0
+        },
+        "clip": {
+         "name": "Mood/Bored",
+         "asset": "Mood_Bored",
+         "loop": false,
+         "duration": 0,
+         "available": true
+        }
+       },
+       {
+        "threshold": 2,
+        "timeScale": 1,
+        "position": {
+         "x": 0,
+         "y": 0
+        },
+        "clip": {
+         "name": "Mood/Happy",
+         "asset": "Mood_Happy",
+         "loop": false,
+         "duration": 0,
+         "available": true
+        }
+       },
+       {
+        "threshold": 3,
+        "timeScale": 1,
+        "position": {
+         "x": 0,
+         "y": 0
+        },
+        "clip": {
+         "name": "Mood/Shy",
+         "asset": "Mood_Shy",
+         "loop": true,
+         "duration": 3,
+         "available": true
+        }
+       }
+      ]
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101632457200066912",
+       "destination": "Mood/Shy",
+       "destinationId": "1102634108722742392",
+       "conditions": [
+        {
+         "parameter": "Touch",
+         "mode": "if",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.9225589,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.15195298,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102634108722742392",
+     "name": "Mood/Shy",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Mood/Shy",
+      "asset": "Mood_Shy",
+      "loop": true,
+      "duration": 3,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101302127217294661",
+       "destination": "Mood_BlendTree",
+       "destinationId": "1102313026266067498",
+       "conditions": [],
+       "exitTime": 0.9552767,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.13417006,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    }
+   ],
+   "statePositions": {
+    "1102313026266067498": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "1102634108722742392": {
+     "x": 250,
+     "y": 0,
+     "z": 0
+    }
+   },
+   "defaultState": "Mood_BlendTree",
+   "anyStateTransitions": [
+    {
+     "id": "1101470112387431263",
+     "destination": "Mood/Shy",
+     "destinationId": "1102634108722742392",
+     "conditions": [
+      {
+       "parameter": "Touch",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.89703137,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.18638682,
+     "offset": 0,
+     "canTransitionToSelf": false,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    }
+   ],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "Talking",
+   "mode": "override",
+   "defaultWeight": 1,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102642988549198181",
+     "name": "New State",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "none"
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101946936116752871",
+       "destination": "Mood/Talking",
+       "destinationId": "1102711914853252429",
+       "conditions": [
+        {
+         "parameter": "Talking",
+         "mode": "if",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.9598326,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.04016739,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102711914853252429",
+     "name": "Mood/Talking",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Mood/Talking",
+      "asset": "Mood_Talking",
+      "loop": true,
+      "duration": 0.93333334,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101918264173551851",
+       "destination": "New State",
+       "destinationId": "1102642988549198181",
+       "conditions": [
+        {
+         "parameter": "Talking",
+         "mode": "ifNot",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.9437385,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.05251056,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    }
+   ],
+   "statePositions": {
+    "1102642988549198181": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "1102711914853252429": {
+     "x": 250,
+     "y": 0,
+     "z": 0
+    }
+   },
+   "defaultState": "New State",
+   "anyStateTransitions": [],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "Empty",
+   "mode": "override",
+   "defaultWeight": 0,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [],
+   "statePositions": {},
+   "defaultState": null,
+   "anyStateTransitions": [],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "Empty 0",
+   "mode": "override",
+   "defaultWeight": 0,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [],
+   "statePositions": {},
+   "defaultState": null,
+   "anyStateTransitions": [],
+   "entryTransitions": [],
+   "behaviours": []
+  }
+ ],
+ "clipNames": [
+  "Click_Keyboard_TwoHand",
+  "Click_Mouse",
+  "Face_Work",
+  "Mood/Bored",
+  "Mood/Default",
+  "Mood/Happy",
+  "Mood/Shy",
+  "Mood/Talking",
+  "Motion_Idle",
+  "Tail_Loop",
+  "Touch_Chest"
+ ],
+ "stateCount": 12,
+ "transitionCount": 14,
+ "animations": [
+  "Click_Keyboard_TwoHand",
+  "Click_Mouse",
+  "DesktopA/Juice",
+  "DesktopA/Juice_Motion",
+  "Face_Work",
+  "Mood/Bored",
+  "Mood/Default",
+  "Mood/Happy",
+  "Mood/Shy",
+  "Mood/Talking",
+  "Motion_Idle",
+  "Tail_Loop",
+  "Touch_Chest"
+ ],
+ "missingClips": []
+}

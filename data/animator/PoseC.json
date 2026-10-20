@@ -1,0 +1,1647 @@
+{
+ "controller": "PoseC_Controller",
+ "source": "PoseC_Controller.controller",
+ "params": [
+  {
+   "name": "Start",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "Click_1",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "Click_2",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "Click_3",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "Touch_1",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "Touch_2",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "Touch_ChestR",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "Touch_ChestL",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "Orgasm",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "Reset",
+   "type": "trigger",
+   "default": false
+  },
+  {
+   "name": "IsOrgasm",
+   "type": "bool",
+   "default": false
+  },
+  {
+   "name": "IsReset",
+   "type": "bool",
+   "default": false
+  },
+  {
+   "name": "IsStart",
+   "type": "bool",
+   "default": false
+  }
+ ],
+ "layers": [
+  {
+   "name": "Base Layer",
+   "mode": "override",
+   "defaultWeight": 0,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102884547391421755",
+     "name": "Default_Idle",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Default_Idle",
+      "asset": "Default_Idle_0",
+      "loop": true,
+      "duration": 4,
+      "available": true
+     },
+     "behaviours": [
+      {
+       "script": "70a1a0cfbd7a9ae0343ee63f0023c4f0",
+       "parameterName": "IsReset",
+       "valueOnEnter": true,
+       "valueOnExit": false
+      }
+     ],
+     "transitions": [
+      {
+       "id": "1101243736805655561",
+       "destination": "Default_ToSex",
+       "destinationId": "1102044625135789424",
+       "conditions": [
+        {
+         "parameter": "Start",
+         "mode": "if",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.9749843,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.09040761,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102061268324235159",
+     "name": "Sex_Idle",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Sex_Idle",
+      "asset": "Sex_Idle_0",
+      "loop": true,
+      "duration": 2,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101587765826080250",
+       "destination": "Sex_Orgasm",
+       "destinationId": "1102256069497284392",
+       "conditions": [
+        {
+         "parameter": "Orgasm",
+         "mode": "if",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.8125,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.25,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      },
+      {
+       "id": "1101709867586078768",
+       "destination": "Sex_Motion1",
+       "destinationId": "1102985305603660343",
+       "conditions": [
+        {
+         "parameter": "Click_1",
+         "mode": "if",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.875,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.25,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102044625135789424",
+     "name": "Default_ToSex",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Default_IdleToSex",
+      "asset": "Default_IdleToSex_0",
+      "loop": false,
+      "duration": 1.1333333,
+      "available": true
+     },
+     "behaviours": [
+      {
+       "script": "61ba339965b91c9ff7178d7d74668eec",
+       "parameterName": null,
+       "valueOnEnter": false,
+       "valueOnExit": false
+      },
+      {
+       "script": "70a1a0cfbd7a9ae0343ee63f0023c4f0",
+       "parameterName": "IsStart",
+       "valueOnEnter": true,
+       "valueOnExit": false
+      }
+     ],
+     "transitions": [
+      {
+       "id": "1101025901758691103",
+       "destination": "Sex_Idle",
+       "destinationId": "1102061268324235159",
+       "conditions": [],
+       "exitTime": 0.9588423,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.046512127,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102985305603660343",
+     "name": "Sex_Motion1",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Sex_Motion1",
+      "asset": "Sex_Motion1",
+      "loop": false,
+      "duration": 0.76666665,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101705390221481576",
+       "destination": "Sex_Idle",
+       "destinationId": "1102061268324235159",
+       "conditions": [],
+       "exitTime": 0.8248007,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.12981558,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102977153420339851",
+     "name": "Sex_Idle_Orgasm",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Sex_Idle_Orgasm",
+      "asset": "Sex_Idle_Orgasm_1",
+      "loop": true,
+      "duration": 2,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101336590748365959",
+       "destination": "Sex_Orgasm",
+       "destinationId": "1102256069497284392",
+       "conditions": [
+        {
+         "parameter": "Orgasm",
+         "mode": "if",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.8125,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.25,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102256069497284392",
+     "name": "Sex_Orgasm",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Sex_Orgasm",
+      "asset": "Sex_Orgasm_1",
+      "loop": false,
+      "duration": 2.1,
+      "available": true
+     },
+     "behaviours": [
+      {
+       "script": "70a1a0cfbd7a9ae0343ee63f0023c4f0",
+       "parameterName": "IsOrgasm",
+       "valueOnEnter": true,
+       "valueOnExit": false
+      },
+      {
+       "script": "61ba339965b91c9ff7178d7d74668eec",
+       "parameterName": null,
+       "valueOnEnter": false,
+       "valueOnExit": false
+      }
+     ],
+     "transitions": [
+      {
+       "id": "1101470112387431263",
+       "destination": "Sex_Idle_Orgasm",
+       "destinationId": "1102977153420339851",
+       "conditions": [],
+       "exitTime": 0.6555819,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.72217786,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102313026266067498",
+     "name": "Sex_Motion_Orgasm",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Sex_Motion_Orgasm",
+      "asset": "Sex_Motion_Orgasm",
+      "loop": false,
+      "duration": 0.5,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101621510681728303",
+       "destination": "Sex_Idle_Orgasm",
+       "destinationId": "1102977153420339851",
+       "conditions": [],
+       "exitTime": 0.50019324,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.24773532,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102632457200066912",
+     "name": "Sex_Motion2",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Sex_Motion2",
+      "asset": "Sex_Motion2",
+      "loop": false,
+      "duration": 0.5,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101634108722742392",
+       "destination": "Sex_Idle",
+       "destinationId": "1102061268324235159",
+       "conditions": [],
+       "exitTime": 0.5104581,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.23718482,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    }
+   ],
+   "statePositions": {
+    "1102884547391421755": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "1102061268324235159": {
+     "x": 250,
+     "y": 0,
+     "z": 0
+    },
+    "1102044625135789424": {
+     "x": 500,
+     "y": 0,
+     "z": 0
+    },
+    "1102985305603660343": {
+     "x": 0,
+     "y": 100,
+     "z": 0
+    },
+    "1102977153420339851": {
+     "x": 250,
+     "y": 100,
+     "z": 0
+    },
+    "1102256069497284392": {
+     "x": 500,
+     "y": 100,
+     "z": 0
+    },
+    "1102313026266067498": {
+     "x": 0,
+     "y": 200,
+     "z": 0
+    },
+    "1102632457200066912": {
+     "x": 250,
+     "y": 200,
+     "z": 0
+    }
+   },
+   "defaultState": "Default_Idle",
+   "anyStateTransitions": [
+    {
+     "id": "1101730242686860875",
+     "destination": "Default_Idle",
+     "destinationId": "1102884547391421755",
+     "conditions": [
+      {
+       "parameter": "Reset",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.86167383,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.16982388,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    },
+    {
+     "id": "1101724804207875695",
+     "destination": "Sex_Motion_Orgasm",
+     "destinationId": "1102313026266067498",
+     "conditions": [
+      {
+       "parameter": "Click_3",
+       "mode": "if",
+       "threshold": 0
+      },
+      {
+       "parameter": "IsOrgasm",
+       "mode": "ifNot",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.949624,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.100726485,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    },
+    {
+     "id": "1101618682377417806",
+     "destination": "Sex_Motion2",
+     "destinationId": "1102632457200066912",
+     "conditions": [
+      {
+       "parameter": "Click_2",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.88323325,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.22389448,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    },
+    {
+     "id": "1101703437598541787",
+     "destination": "Sex_Motion1",
+     "destinationId": "1102985305603660343",
+     "conditions": [
+      {
+       "parameter": "Click_1",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.91672385,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.16333365,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    }
+   ],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "Layer 1",
+   "mode": "additive",
+   "defaultWeight": 1,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102642988549198181",
+     "name": "New State",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "none"
+     },
+     "behaviours": [],
+     "transitions": []
+    },
+    {
+     "id": "1102946936116752871",
+     "name": "Touch/TouchBase",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Touch/TouchBase",
+      "asset": "Touch_TouchBase",
+      "loop": false,
+      "duration": 0.5,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101711914853252429",
+       "destination": "New State",
+       "destinationId": "1102642988549198181",
+       "conditions": [],
+       "exitTime": 0.86679035,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.06679812,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    }
+   ],
+   "statePositions": {
+    "1102642988549198181": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "1102946936116752871": {
+     "x": 250,
+     "y": 0,
+     "z": 0
+    }
+   },
+   "defaultState": "New State",
+   "anyStateTransitions": [
+    {
+     "id": "1101969106005120503",
+     "destination": "Touch/TouchBase",
+     "destinationId": "1102946936116752871",
+     "conditions": [
+      {
+       "parameter": "Touch_1",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.9433529,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.025293052,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    }
+   ],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "TouchHead",
+   "mode": "additive",
+   "defaultWeight": 1,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102875609422105747",
+     "name": "New State",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "none"
+     },
+     "behaviours": [],
+     "transitions": []
+    },
+    {
+     "id": "1102371939378208658",
+     "name": "Touch/Touch_1+Base",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Touch/Touch_Head+Base",
+      "asset": "Touch_Touch_Head+Base",
+      "loop": false,
+      "duration": 1.7,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101694121525821480",
+       "destination": "New State",
+       "destinationId": "1102875609422105747",
+       "conditions": [],
+       "exitTime": 0.85294116,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.25,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    }
+   ],
+   "statePositions": {
+    "1102875609422105747": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "1102371939378208658": {
+     "x": 250,
+     "y": 0,
+     "z": 0
+    }
+   },
+   "defaultState": "New State",
+   "anyStateTransitions": [
+    {
+     "id": "1101587397909062814",
+     "destination": "Touch/Touch_1+Base",
+     "destinationId": "1102371939378208658",
+     "conditions": [
+      {
+       "parameter": "Touch_2",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.89693755,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.17466497,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    }
+   ],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "TouchChest",
+   "mode": "additive",
+   "defaultWeight": 1,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102217368724061974",
+     "name": "New State",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "none"
+     },
+     "behaviours": [],
+     "transitions": []
+    },
+    {
+     "id": "1102089843903986396",
+     "name": "Touch/Touch_2_ChestR",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Touch/Touch_2_ChestR",
+      "asset": "Touch_Touch_2_ChestR",
+      "loop": false,
+      "duration": 0.5,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101672306508523268",
+       "destination": "New State",
+       "destinationId": "1102217368724061974",
+       "conditions": [],
+       "exitTime": 0.5,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.25,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102808113985169905",
+     "name": "Touch/Touch_2_ChestL",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Touch/Touch_2_ChestL",
+      "asset": "Touch_Touch_2_ChestL",
+      "loop": false,
+      "duration": 0.5,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101060945828524476",
+       "destination": "New State",
+       "destinationId": "1102217368724061974",
+       "conditions": [],
+       "exitTime": 0.8979643,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.05101785,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    }
+   ],
+   "statePositions": {
+    "1102217368724061974": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "1102089843903986396": {
+     "x": 250,
+     "y": 0,
+     "z": 0
+    },
+    "1102808113985169905": {
+     "x": 0,
+     "y": 100,
+     "z": 0
+    }
+   },
+   "defaultState": "New State",
+   "anyStateTransitions": [
+    {
+     "id": "1101017697238300914",
+     "destination": "Touch/Touch_2_ChestL",
+     "destinationId": "1102808113985169905",
+     "conditions": [
+      {
+       "parameter": "Touch_ChestL",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.93993545,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.03164518,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    },
+    {
+     "id": "1101733206282342372",
+     "destination": "Touch/Touch_2_ChestR",
+     "destinationId": "1102089843903986396",
+     "conditions": [
+      {
+       "parameter": "Touch_ChestR",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.9544661,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.025022209,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    }
+   ],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "VFX_Pee",
+   "mode": "override",
+   "defaultWeight": 1,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102518489005915545",
+     "name": "Pee_Reset",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Pee_Reset",
+      "asset": "Pee_Reset_0",
+      "loop": false,
+      "duration": 0,
+      "available": false
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101220653531496868",
+       "destination": "Pee_Square",
+       "destinationId": "1102841364053301648",
+       "conditions": [
+        {
+         "parameter": "IsOrgasm",
+         "mode": "if",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.75,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.25,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102841364053301648",
+     "name": "Pee_Square",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Pee_Square",
+      "asset": "Pee_Square_0",
+      "loop": false,
+      "duration": 6,
+      "available": false
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101967328832014496",
+       "destination": "Pee_Square_Idle",
+       "destinationId": "1102291844617409189",
+       "conditions": [],
+       "exitTime": 0.9583333,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.25,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102291844617409189",
+     "name": "Pee_Square_Idle",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Pee_Square_Idle",
+      "asset": "Pee_Square_Idle_0",
+      "loop": true,
+      "duration": 0,
+      "available": false
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101344419225485095",
+       "destination": "Pee_Square",
+       "destinationId": "1102841364053301648",
+       "conditions": [
+        {
+         "parameter": "IsOrgasm",
+         "mode": "if",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.75,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.25,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    }
+   ],
+   "statePositions": {
+    "1102518489005915545": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "1102841364053301648": {
+     "x": 250,
+     "y": 0,
+     "z": 0
+    },
+    "1102291844617409189": {
+     "x": 0,
+     "y": 100,
+     "z": 0
+    }
+   },
+   "defaultState": "Pee_Reset",
+   "anyStateTransitions": [
+    {
+     "id": "1101472185465350827",
+     "destination": "Pee_Reset",
+     "destinationId": "1102518489005915545",
+     "conditions": [
+      {
+       "parameter": "IsReset",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.75,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.25,
+     "offset": 0,
+     "canTransitionToSelf": false,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    }
+   ],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "FaceRed",
+   "mode": "override",
+   "defaultWeight": 1,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102726790013014859",
+     "name": "FaceRed/0",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "FaceRed/0",
+      "asset": "FaceRed_0_0",
+      "loop": true,
+      "duration": 0,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101436073260064126",
+       "destination": "FaceRed/1",
+       "destinationId": "1102693329660128220",
+       "conditions": [
+        {
+         "parameter": "IsStart",
+         "mode": "if",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.14239235,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.85760766,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102693329660128220",
+     "name": "FaceRed/1",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "FaceRed/1",
+      "asset": "FaceRed_1_0",
+      "loop": true,
+      "duration": 0,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101801075752484240",
+       "destination": "FaceRed/0",
+       "destinationId": "1102726790013014859",
+       "conditions": [],
+       "exitTime": 5.0292025,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 2.9693084,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102000955326284023",
+     "name": "FaceRed/2",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "FaceRed/2",
+      "asset": "FaceRed_2",
+      "loop": true,
+      "duration": 0,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101397768327470545",
+       "destination": "FaceRed/1 0",
+       "destinationId": "1102581786255902400",
+       "conditions": [],
+       "exitTime": 4.7506304,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.25000048,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102571718729274231",
+     "name": "FaceRed/3",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "FaceRed/3",
+      "asset": "FaceRed_3",
+      "loop": true,
+      "duration": 0,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": []
+    },
+    {
+     "id": "1102581786255902400",
+     "name": "FaceRed/1 0",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "FaceRed/1",
+      "asset": "FaceRed_1",
+      "loop": true,
+      "duration": 0,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101477046003934300",
+       "destination": "FaceRed/0",
+       "destinationId": "1102726790013014859",
+       "conditions": [],
+       "exitTime": 5.0199037,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 2.9843345,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    }
+   ],
+   "statePositions": {
+    "1102726790013014859": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "1102693329660128220": {
+     "x": 250,
+     "y": 0,
+     "z": 0
+    },
+    "1102000955326284023": {
+     "x": 500,
+     "y": 0,
+     "z": 0
+    },
+    "1102571718729274231": {
+     "x": 0,
+     "y": 100,
+     "z": 0
+    },
+    "1102581786255902400": {
+     "x": 250,
+     "y": 100,
+     "z": 0
+    }
+   },
+   "defaultState": "FaceRed/0",
+   "anyStateTransitions": [
+    {
+     "id": "1101107629493147155",
+     "destination": "FaceRed/1 0",
+     "destinationId": "1102581786255902400",
+     "conditions": [
+      {
+       "parameter": "Click_1",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.75,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.25,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    },
+    {
+     "id": "1101833703512093738",
+     "destination": "FaceRed/2",
+     "destinationId": "1102000955326284023",
+     "conditions": [
+      {
+       "parameter": "Click_2",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.75,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.25,
+     "offset": 0,
+     "canTransitionToSelf": true,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    },
+    {
+     "id": "1101632746491512912",
+     "destination": "FaceRed/3",
+     "destinationId": "1102571718729274231",
+     "conditions": [
+      {
+       "parameter": "IsOrgasm",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.75,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.25,
+     "offset": 0,
+     "canTransitionToSelf": false,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    },
+    {
+     "id": "1101719342369648492",
+     "destination": "FaceRed/0",
+     "destinationId": "1102726790013014859",
+     "conditions": [
+      {
+       "parameter": "IsReset",
+       "mode": "if",
+       "threshold": 0
+      }
+     ],
+     "exitTime": 0.97540414,
+     "hasExitTime": false,
+     "fixedDuration": true,
+     "duration": 0.024595857,
+     "offset": 0,
+     "canTransitionToSelf": false,
+     "atomic": true,
+     "mute": false,
+     "solo": false,
+     "interruptionSource": 0,
+     "orderedInterruption": true
+    }
+   ],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "LiquidEffect",
+   "mode": "override",
+   "defaultWeight": 1,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102722951815217645",
+     "name": "Liquid/VFX_WaterLoop1",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Liquid/VFX_WaterLoop1",
+      "asset": "Liquid_VFX_WaterLoop1",
+      "loop": false,
+      "duration": 0,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101924050743934937",
+       "destination": "Liquid/VFX_WaterLoop2",
+       "destinationId": "1102689364072382846",
+       "conditions": [
+        {
+         "parameter": "Click_3",
+         "mode": "if",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.97362006,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.026379943,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      },
+      {
+       "id": "1101215879266689626",
+       "destination": "Liquid/VFX_WaterLoop2",
+       "destinationId": "1102689364072382846",
+       "conditions": [
+        {
+         "parameter": "Click_2",
+         "mode": "if",
+         "threshold": 0
+        }
+       ],
+       "exitTime": 0.98082435,
+       "hasExitTime": false,
+       "fixedDuration": true,
+       "duration": 0.019175649,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    },
+    {
+     "id": "1102689364072382846",
+     "name": "Liquid/VFX_WaterLoop2",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "Liquid/VFX_WaterLoop2",
+      "asset": "Liquid_VFX_WaterLoop2",
+      "loop": false,
+      "duration": 0.5,
+      "available": true
+     },
+     "behaviours": [],
+     "transitions": [
+      {
+       "id": "1101043919389829319",
+       "destination": "Liquid/VFX_WaterLoop1",
+       "destinationId": "1102722951815217645",
+       "conditions": [],
+       "exitTime": 0.9842108,
+       "hasExitTime": true,
+       "fixedDuration": true,
+       "duration": 0.007894605,
+       "offset": 0,
+       "canTransitionToSelf": true,
+       "atomic": true,
+       "mute": false,
+       "solo": false,
+       "interruptionSource": 0,
+       "orderedInterruption": true
+      }
+     ]
+    }
+   ],
+   "statePositions": {
+    "1102722951815217645": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    },
+    "1102689364072382846": {
+     "x": 250,
+     "y": 0,
+     "z": 0
+    }
+   },
+   "defaultState": "Liquid/VFX_WaterLoop1",
+   "anyStateTransitions": [],
+   "entryTransitions": [],
+   "behaviours": []
+  },
+  {
+   "name": "VFX_Transform",
+   "mode": "override",
+   "defaultWeight": 1,
+   "ikPass": false,
+   "syncedLayerIndex": -1,
+   "states": [
+    {
+     "id": "1102094320201520353",
+     "name": "VFXTransformSetting",
+     "speed": 1,
+     "cycleOffset": 0,
+     "writeDefaultValues": true,
+     "tag": [],
+     "motion": {
+      "kind": "clip",
+      "name": "VFXTransformSetting",
+      "asset": "VFXTransformSetting",
+      "loop": false,
+      "duration": 0,
+      "available": false
+     },
+     "behaviours": [],
+     "transitions": []
+    }
+   ],
+   "statePositions": {
+    "1102094320201520353": {
+     "x": 0,
+     "y": 0,
+     "z": 0
+    }
+   },
+   "defaultState": "VFXTransformSetting",
+   "anyStateTransitions": [],
+   "entryTransitions": [],
+   "behaviours": []
+  }
+ ],
+ "clipNames": [
+  "Default_Idle",
+  "Default_IdleToSex",
+  "FaceRed/0",
+  "FaceRed/1",
+  "FaceRed/2",
+  "FaceRed/3",
+  "Liquid/VFX_WaterLoop1",
+  "Liquid/VFX_WaterLoop2",
+  "Pee_Reset",
+  "Pee_Square",
+  "Pee_Square_Idle",
+  "Sex_Idle",
+  "Sex_Idle_Orgasm",
+  "Sex_Motion1",
+  "Sex_Motion2",
+  "Sex_Motion_Orgasm",
+  "Sex_Orgasm",
+  "Touch/TouchBase",
+  "Touch/Touch_2_ChestL",
+  "Touch/Touch_2_ChestR",
+  "Touch/Touch_Head+Base",
+  "VFXTransformSetting"
+ ],
+ "stateCount": 26,
+ "transitionCount": 36,
+ "animations": [
+  "Default_Idle",
+  "Default_IdleToSex",
+  "FaceRed/0",
+  "FaceRed/1",
+  "FaceRed/2",
+  "FaceRed/3",
+  "Liquid/Liquid_Orgasm",
+  "Liquid/Liquid_Orgasm1",
+  "Liquid/Liquid_Orgasm2",
+  "Liquid/Liquid_Orgasm3",
+  "Liquid/Liquid_Stay1",
+  "Liquid/Liquid_Stay2",
+  "Liquid/Liquid_Stay3",
+  "Liquid/VFX_WaterLoop1",
+  "Liquid/VFX_WaterLoop2",
+  "NoUse/Test123",
+  "Sex_Idle",
+  "Sex_Idle_Orgasm",
+  "Sex_Motion1",
+  "Sex_Motion2",
+  "Sex_Motion_Orgasm",
+  "Sex_Orgasm",
+  "Touch/TouchBase",
+  "Touch/TouchBase_Stay",
+  "Touch/Touch_2_ChestL",
+  "Touch/Touch_2_ChestR",
+  "Touch/Touch_Head",
+  "Touch/Touch_Head+Base"
+ ],
+ "missingClips": [
+  "Pee_Reset",
+  "Pee_Square",
+  "Pee_Square_Idle",
+  "VFXTransformSetting"
+ ]
+}

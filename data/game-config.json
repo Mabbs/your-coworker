@@ -1,0 +1,578 @@
+{
+  "poses": {
+    "PoseA": {
+      "poseId": 101,
+      "enableMeter": false,
+      "binding": {
+        "runtimeController": "PoseA_Controller",
+        "listenMood": true,
+        "listenTouch": true,
+        "listenInputDevice": true,
+        "keyboardAnimation": "Keyboard",
+        "mouseAnimation": "click",
+        "enablePhaseSystem": false,
+        "halfThreshold": 0.5,
+        "startAnimation": "Start",
+        "inputTriggers": [
+          "Click_1",
+          "Click_2",
+          "Click_3"
+        ],
+        "listenMeterFilled": false,
+        "filledAnimation": "Orgasm",
+        "listenMeterReset": false,
+        "resetAnimation": "Reset",
+        "touchAnimation": null,
+        "moodAnimationKey": null
+      },
+      "interaction": {
+        "keyPressPoints": null,
+        "touchPoints": null,
+        "maxPoints": null,
+        "decayCooldown": null,
+        "decayInterval": null,
+        "decayAmount": null
+      },
+      "touchZones": [
+        {
+          "name": "Touch Zone_PoseA_Body",
+          "pose": "PoseA",
+          "zoneKey": "Body",
+          "touchAnimation": "Touch",
+          "anchoredPosition": {
+            "x": 267.0,
+            "y": -187.0
+          },
+          "sizeDelta": {
+            "x": 391.0,
+            "y": 325.0
+          },
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotationZ": 0.0,
+          "parentPath": "DragMoveCanvas/Root/[MoveRange]/SpineRoot/Can Click Area/Spine Costume/Pose A"
+        }
+      ],
+      "costumeDefaults": {
+        "baseSkin": "Base",
+        "suitSkin": "default",
+        "upperBodySkin": "",
+        "lowerBodySkin": "",
+        "headSkin": "",
+        "faceSkin": "",
+        "legSkin": "Leg/Default_Leg",
+        "tailSkin": "Tail/Default_Tail",
+        "accessorySkin": "",
+        "punchScale": 0.04,
+        "punchDuration": 0.2,
+        "punchVibrato": 8,
+        "punchElasticity": 1
+      }
+    },
+    "PoseB": {
+      "poseId": 102,
+      "enableMeter": true,
+      "binding": {
+        "runtimeController": "PoseB_Controller",
+        "listenMood": false,
+        "listenTouch": true,
+        "listenInputDevice": false,
+        "keyboardAnimation": "Keyboard",
+        "mouseAnimation": "click",
+        "enablePhaseSystem": true,
+        "halfThreshold": 0.5,
+        "startAnimation": "Start",
+        "inputTriggers": [
+          "Click_1",
+          "Click_2",
+          "Click_3"
+        ],
+        "listenMeterFilled": true,
+        "filledAnimation": "Orgasm",
+        "listenMeterReset": true,
+        "resetAnimation": "Reset",
+        "touchAnimation": null,
+        "moodAnimationKey": null
+      },
+      "interaction": {
+        "keyPressPoints": 1,
+        "touchPoints": 2,
+        "maxPoints": 100,
+        "decayCooldown": 10,
+        "decayInterval": 1,
+        "decayAmount": 5
+      },
+      "touchZones": [
+        {
+          "name": "Touch Zone_PoseB_Head",
+          "pose": "PoseB",
+          "zoneKey": "Head",
+          "touchAnimation": "Touch_1",
+          "anchoredPosition": {
+            "x": 212.0,
+            "y": -75.0
+          },
+          "sizeDelta": {
+            "x": 298.0,
+            "y": 235.0
+          },
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotationZ": 0.0,
+          "parentPath": "DragMoveCanvas/Root/[MoveRange]/SpineRoot/Can Click Area/Spine Costume/Pose B"
+        },
+        {
+          "name": "Touch Zone_PoseB_Body",
+          "pose": "PoseB",
+          "zoneKey": "Body",
+          "touchAnimation": "Touch_2",
+          "anchoredPosition": {
+            "x": 240.25008,
+            "y": -265.86
+          },
+          "sizeDelta": {
+            "x": 354.5,
+            "y": 138.72
+          },
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotationZ": 0.0,
+          "parentPath": "DragMoveCanvas/Root/[MoveRange]/SpineRoot/Can Click Area/Spine Costume/Pose B"
+        },
+        {
+          "name": "Touch Zone_PoseB_3L",
+          "pose": "PoseB",
+          "zoneKey": "3L",
+          "touchAnimation": "Touch_3L",
+          "anchoredPosition": {
+            "x": 81.175,
+            "y": -407.17258
+          },
+          "sizeDelta": {
+            "x": 113.35,
+            "y": 143.9136
+          },
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotationZ": 0.0,
+          "parentPath": "DragMoveCanvas/Root/[MoveRange]/SpineRoot/Can Click Area/Spine Costume/Pose B"
+        },
+        {
+          "name": "Touch Zone_PoseB_3R",
+          "pose": "PoseB",
+          "zoneKey": "3R",
+          "touchAnimation": "Touch_3R",
+          "anchoredPosition": {
+            "x": 202.21352,
+            "y": -407.17258
+          },
+          "sizeDelta": {
+            "x": 128.717,
+            "y": 143.9136
+          },
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotationZ": 0.0,
+          "parentPath": "DragMoveCanvas/Root/[MoveRange]/SpineRoot/Can Click Area/Spine Costume/Pose B"
+        }
+      ],
+      "costumeDefaults": {
+        "baseSkin": "Base",
+        "suitSkin": "default",
+        "upperBodySkin": "",
+        "lowerBodySkin": "",
+        "headSkin": "",
+        "faceSkin": "",
+        "legSkin": "Leg/Default_Leg",
+        "tailSkin": "Tail/Default_Tail",
+        "accessorySkin": "",
+        "punchScale": 0.04,
+        "punchDuration": 0.2,
+        "punchVibrato": 8,
+        "punchElasticity": 1
+      }
+    },
+    "PoseC": {
+      "poseId": 103,
+      "enableMeter": true,
+      "binding": {
+        "runtimeController": "PoseC_Controller",
+        "listenMood": false,
+        "listenTouch": true,
+        "listenInputDevice": false,
+        "keyboardAnimation": "Keyboard",
+        "mouseAnimation": "click",
+        "enablePhaseSystem": true,
+        "halfThreshold": 0.5,
+        "startAnimation": "Start",
+        "inputTriggers": [
+          "Click_1",
+          "Click_2",
+          "Click_3"
+        ],
+        "listenMeterFilled": true,
+        "filledAnimation": "Orgasm",
+        "listenMeterReset": true,
+        "resetAnimation": "Reset",
+        "touchAnimation": null,
+        "moodAnimationKey": null
+      },
+      "interaction": {
+        "keyPressPoints": 1,
+        "touchPoints": 2,
+        "maxPoints": 100,
+        "decayCooldown": 10,
+        "decayInterval": 1,
+        "decayAmount": 5
+      },
+      "touchZones": [
+        {
+          "name": "Touch Zone_PoseC_Head",
+          "pose": "PoseC",
+          "zoneKey": "Head",
+          "touchAnimation": "Touch_2",
+          "anchoredPosition": {
+            "x": 271.09525,
+            "y": 60.0
+          },
+          "sizeDelta": {
+            "x": 187.7797,
+            "y": 189.7309
+          },
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotationZ": 0.0,
+          "parentPath": "DragMoveCanvas/Root/[MoveRange]/SpineRoot/Can Click Area/Spine Costume/Pose C"
+        },
+        {
+          "name": "Touch Zone_PoseC_Body",
+          "pose": "PoseC",
+          "zoneKey": "Body",
+          "touchAnimation": "Touch_1",
+          "anchoredPosition": {
+            "x": 244.98427,
+            "y": -196.22147
+          },
+          "sizeDelta": {
+            "x": 445.6167,
+            "y": 303.8878
+          },
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotationZ": 0.0,
+          "parentPath": "DragMoveCanvas/Root/[MoveRange]/SpineRoot/Can Click Area/Spine Costume/Pose C"
+        },
+        {
+          "name": "Touch Zone_PoseC_ChestL",
+          "pose": "PoseC",
+          "zoneKey": "ChestL",
+          "touchAnimation": "Touch_ChestL",
+          "anchoredPosition": {
+            "x": 314.68,
+            "y": -116.50857
+          },
+          "sizeDelta": {
+            "x": 103.1463,
+            "y": 109.0341
+          },
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotationZ": 0.0,
+          "parentPath": "DragMoveCanvas/Root/[MoveRange]/SpineRoot/Can Click Area/Spine Costume/Pose C"
+        },
+        {
+          "name": "Touch Zone_PoseC_ChestR",
+          "pose": "PoseC",
+          "zoneKey": "ChestR",
+          "touchAnimation": "Touch_ChestR",
+          "anchoredPosition": {
+            "x": 203.65189,
+            "y": -116.50857
+          },
+          "sizeDelta": {
+            "x": 103.1463,
+            "y": 109.0341
+          },
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotationZ": 0.0,
+          "parentPath": "DragMoveCanvas/Root/[MoveRange]/SpineRoot/Can Click Area/Spine Costume/Pose C"
+        }
+      ],
+      "costumeDefaults": {
+        "baseSkin": "Base",
+        "suitSkin": "default",
+        "upperBodySkin": "",
+        "lowerBodySkin": "",
+        "headSkin": "",
+        "faceSkin": "",
+        "legSkin": "Leg/Default_Leg",
+        "tailSkin": "Tail/Default_Tail",
+        "accessorySkin": "",
+        "punchScale": 0.04,
+        "punchDuration": 0.2,
+        "punchVibrato": 8,
+        "punchElasticity": 1
+      }
+    },
+    "PoseD": {
+      "poseId": 104,
+      "enableMeter": true,
+      "binding": {
+        "runtimeController": "PoseD_Controller",
+        "listenMood": false,
+        "listenTouch": true,
+        "listenInputDevice": false,
+        "keyboardAnimation": "Keyboard",
+        "mouseAnimation": "click",
+        "enablePhaseSystem": true,
+        "halfThreshold": 0.5,
+        "startAnimation": "Start",
+        "inputTriggers": [
+          "Click_1",
+          "Click_2",
+          "Click_3"
+        ],
+        "listenMeterFilled": true,
+        "filledAnimation": "Orgasm",
+        "listenMeterReset": true,
+        "resetAnimation": "Reset",
+        "touchAnimation": null,
+        "moodAnimationKey": null
+      },
+      "interaction": {
+        "keyPressPoints": 1,
+        "touchPoints": 2,
+        "maxPoints": 100,
+        "decayCooldown": 10,
+        "decayInterval": 1,
+        "decayAmount": 5
+      },
+      "touchZones": [
+        {
+          "name": "Touch Zone_PoseD_Head",
+          "pose": "PoseD",
+          "zoneKey": "Head",
+          "touchAnimation": "Touch_2",
+          "anchoredPosition": {
+            "x": 60.471127,
+            "y": -475.9
+          },
+          "sizeDelta": {
+            "x": 179.7861,
+            "y": 185.565
+          },
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotationZ": 0.0,
+          "parentPath": "DragMoveCanvas/Root/[MoveRange]/SpineRoot/Can Click Area/Spine Costume/Pose D"
+        },
+        {
+          "name": "Touch Zone_PoseD_1",
+          "pose": "PoseD",
+          "zoneKey": "1",
+          "touchAnimation": "Touch_1",
+          "anchoredPosition": {
+            "x": 399.03467,
+            "y": -533.8
+          },
+          "sizeDelta": {
+            "x": 154.9796,
+            "y": 131.2264
+          },
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotationZ": 0.0,
+          "parentPath": "DragMoveCanvas/Root/[MoveRange]/SpineRoot/Can Click Area/Spine Costume/Pose D"
+        },
+        {
+          "name": "Touch Zone_PoseD_3",
+          "pose": "PoseD",
+          "zoneKey": "3",
+          "touchAnimation": "Touch_3",
+          "anchoredPosition": {
+            "x": 506.65,
+            "y": -533.8
+          },
+          "sizeDelta": {
+            "x": 60.245,
+            "y": 131.2264
+          },
+          "anchorMin": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "anchorMax": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "rotationZ": 0.0,
+          "parentPath": "DragMoveCanvas/Root/[MoveRange]/SpineRoot/Can Click Area/Spine Costume/Pose D"
+        }
+      ],
+      "costumeDefaults": {
+        "baseSkin": "Base",
+        "suitSkin": "default",
+        "upperBodySkin": "",
+        "lowerBodySkin": "",
+        "headSkin": "",
+        "faceSkin": "",
+        "legSkin": "Leg/Default_Leg",
+        "tailSkin": "Tail/Default_Tail",
+        "accessorySkin": "",
+        "punchScale": 0.04,
+        "punchDuration": 0.2,
+        "punchVibrato": 8,
+        "punchElasticity": 1
+      }
+    }
+  },
+  "interactionRunner": {
+    "defaultPoseId": 101,
+    "idleResetTimeout": 60,
+    "poseConfigOrder": [
+      101,
+      102,
+      103,
+      104
+    ]
+  },
+  "desk": {
+    "initialSkinName": "Base_Desk",
+    "baseSkins": [
+      "default",
+      "Base_Chair",
+      "Base_Desk",
+      "Computer"
+    ],
+    "desktopSkin": "",
+    "underDeskSkin": "",
+    "desktopBSkin": ""
+  },
+  "notes": [
+    "PoseA Config.asset has <InteractionConfig>k__BackingField: {fileID: 0} (no interaction asset assigned) and EnableMeter=0, so PoseA interaction values are all null.",
+    "The serialized touchAnimation and moodAnimationKey fields are absent from all four 'Pose{A..D} Animator Binding Config.asset' files; recorded as null.",
+    "costumeDefaults is a single shared component: 'Spine Costume' GameObject MonoBehaviour fileID 4761 in Main.unity (empty strings for headSkin/faceSkin/upperBodySkin/lowerBodySkin/accessorySkin).",
+    "Spine Costume poseId->SkeletonDataAsset map (Main.unity fileID 4761): 101=PoseA_SkeletonData, 102=PoseB_SkeletonData, 103=PoseC_SkeletonData, 104=PoseD_SkeletonData.",
+    "Animator parameter cross-check: PoseA_Controller params are click, Keyboard, Touch, Talking, Mood. PoseA binding nevertheless lists startAnimation 'Start', inputTriggers Click_1/Click_2/Click_3, filledAnimation 'Orgasm', resetAnimation 'Reset' — none of those exist in PoseA_Controller; the zone touchAnimation 'Touch' does exist.",
+    "Animator parameter cross-check: PoseB/C/D controllers contain Start, Click_1..3, Orgasm, Reset and per-zone Touch_* triggers, but no 'Keyboard' or 'click' parameters (binding keyboardAnimation/mouseAnimation values); listenInputDevice is false for B/C/D so these are not fired there.",
+    "PoseB Controller has Touch_1, Touch_2, Touch_3L, Touch_3R matching its 4 zones; PoseC has Touch_1, Touch_2, Touch_ChestL, Touch_ChestR; PoseD has Touch_1, Touch_2, Touch_3.",
+    "desk.desktopSkin/underDeskSkin/desktopBSkin are serialized as empty strings in '_Main/CharacterAssets/Spine/Desk  Costume.prefab' (lines 141-143); no baseSkins config field exists anywhere — desk.baseSkins was extracted by parsing the Spine 4.3.11 binary 'TextAsset/DefaultDesk.skel.bytes'.",
+    "DefaultDesk.skel.bytes also contains 39 per-prop skins not listed in baseSkins: 22 'Desktop/*', 10 'DesktopB/*', 7 'UnderDesk/*'.",
+    "interactionRunner values read from Main.unity MonoBehaviour fileID 4238 ('Interaction System Runner'): defaultPoseId 101, idleResetTimeout 60, poseConfigOrder follows the serialized poseConfigs list order."
+  ]
+}
