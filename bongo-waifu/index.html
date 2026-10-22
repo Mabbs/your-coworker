@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bongo Waifu · JS 复刻</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">BW</span>
+      <div>
+        <h1>Bongo Waifu</h1>
+        <p>JS 复刻 · Spine 4.2.43 · GirlController 状态机</p>
+      </div>
+    </div>
+    <div class="topmeta">
+      <span class="pill">BaseBody · 37 skins</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel wardrobe">
+      <div class="panel-head">
+        <h2>衣柜</h2>
+        <span class="mono" id="wardrobeCount">0 件</span>
+      </div>
+      <div class="cats" id="cats"></div>
+      <div class="items" id="items"></div>
+      <div class="wardrobe-foot">
+        <button class="ghost small" id="clearWardrobe">全部脱下</button>
+        <span class="mono" id="skinList">default</span>
+      </div>
+    </aside>
+
+    <section class="stage" id="stageWrap">
+      <canvas id="stage"></canvas>
+      <div class="stage-top">
+        <div class="state-chip">
+          <i id="stateDot"></i>
+          <span id="stateLabel">待机</span>
+          <b class="mono" id="stateRaw">Idle</b>
+        </div>
+        <div class="stage-tools">
+          <button class="ghost small" id="fit">适配</button>
+          <button class="ghost small" id="zoomIn">＋</button>
+          <button class="ghost small" id="zoomOut">－</button>
+        </div>
+      </div>
+      <div class="stage-tip">点击角色互动 · 滚轮缩放 · 拖动空白移动画面</div>
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p id="loadText">正在加载 Spine 4.2.43 资源…</p>
+      </div>
+      <div class="error" id="error" hidden></div>
+    </section>
+
+    <aside class="panel control">
+      <div class="panel-head">
+        <h2>互动</h2>
+        <span class="mono" id="dirtyTag">dirty 0</span>
+      </div>
+
+      <div class="meter-block">
+        <div class="meter-title"><span>爱意</span><b class="mono" id="loveVal">0</b></div>
+        <div class="meter"><div class="fill" id="loveFill"></div><i class="mark" style="left:85%"></i></div>
+        <div class="meter-sub"><span>0</span><span>高潮线 100</span></div>
+      </div>
+
+      <div class="meter-block">
+        <div class="meter-title"><span>欲火</span><b class="mono" id="lustVal">0</b></div>
+        <div class="segments" id="lustSegs"><i></i><i></i><i></i><i></i></div>
+        <div class="meter-sub"><span>Level_0</span><span>Level_3</span></div>
+      </div>
+
+      <div class="stats">
+        <div><span>高潮次数</span><b class="mono" id="orgasmVal">0</b></div>
+        <div><span>状态</span><b class="mono" id="phaseVal">Idle</b></div>
+        <div><span>播放轨道</span><b class="mono small" id="trackVal">—</b></div>
+      </div>
+
+      <div class="actions">
+        <button class="primary" id="touch">轻触互动</button>
+        <button id="auto">自动互动</button>
+      </div>
+
+      <div class="slider-block">
+        <label for="dirty">弄脏程度 <b class="mono" id="dirtyVal">0</b></label>
+        <input id="dirty" type="range" min="0" max="10" step="1" value="0">
+      </div>
+
+      <button class="ghost" id="reset">重置角色状态</button>
+
+      <div class="log" id="log"></div>
+    </aside>
+  </main>
+</div>
+
+<script src="vendor/spine-webgl.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
