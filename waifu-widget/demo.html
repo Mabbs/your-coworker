@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>网站看板娘 · 演示页 · waifu-widget</title>
+<style>
+  /* 这个页面的样式模拟一个普通的浅色博客/官网，用来验证看板娘能悬浮在任意网站上 */
+  :root {
+    --ink: #1f2430;
+    --muted: #6b7280;
+    --brand: #e8590c;
+    --line: #e5e7eb;
+    --bg: #fafaf9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.75;
+  }
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 6vw;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .logo { font-weight: 800; font-size: 18px; letter-spacing: 0.02em; }
+  .logo em { color: var(--brand); font-style: normal; }
+  nav a {
+    margin-left: 22px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  nav a:hover { color: var(--brand); }
+  main { max-width: 880px; margin: 0 auto; padding: 48px 20px 80px; }
+  .hero { padding: 20px 0 36px; }
+  .hero h1 { font-size: 34px; margin: 0 0 14px; line-height: 1.3; }
+  .hero p { color: var(--muted); font-size: 16.5px; margin: 0; }
+  .hero .badge {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 3px 12px;
+    border-radius: 99px;
+    font-size: 12.5px;
+    color: var(--brand);
+    background: rgba(232, 89, 12, 0.09);
+    border: 1px solid rgba(232, 89, 12, 0.25);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 30px 0;
+  }
+  .card {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+  .card h3 { margin: 0 0 8px; font-size: 16px; }
+  .card p { margin: 0; color: var(--muted); font-size: 13.5px; }
+  article { font-size: 15.5px; }
+  article h2 { font-size: 22px; margin: 40px 0 12px; }
+  article p { margin: 0 0 14px; }
+  article blockquote {
+    margin: 18px 0;
+    padding: 12px 18px;
+    border-left: 3px solid var(--brand);
+    background: #fff;
+    border-radius: 0 10px 10px 0;
+    color: var(--muted);
+  }
+  pre {
+    overflow-x: auto;
+    padding: 16px 18px;
+    background: #14161d;
+    color: #d8dbe4;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  code { font-family: Consolas, "JetBrains Mono", monospace; }
+  footer.site {
+    padding: 26px 6vw 60px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="logo">My<em>Blog</em></div>
+  <nav>
+    <a href="#">首页</a>
+    <a href="#">归档</a>
+    <a href="#">关于</a>
+    <a href="#">友链</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <span class="badge">独立组件包 · live2d 风格看板娘</span>
+    <h1>给你的网站养一只可以到处拖的「同事」</h1>
+    <p>这是一个普通的博客页面。左下角的 Spine 看板娘悬浮在页面之上——按住她身上任意不透明的地方即可拖到页面任何角落，点击她会有反应，点 👕 可以打开完整的换装间，她还会看向你的鼠标、跟着你的键盘鼠标做动作。她身后的区域照常可以选中文字、点击链接。</p>
+  </section>
+
+  <div class="grid">
+    <div class="card"><h3>🖱️ 随意拖动</h3><p>像素级透明命中检测：只有真正点到角色身上的像素才会接管拖拽，空白处完全穿透，不会挡住页面交互。</p></div>
+    <div class="card"><h3>👗 完整换装</h3><p>头饰、面饰、套装、上衣、下装、腿部、尾巴、道具八个部位，数据来自游戏原版 ItemTable，含稀有度与套装冲突规则。</p></div>
+    <div class="card"><h3>👁️ 视线跟随</h3><p>头部与瞳孔跟随页面鼠标平滑转动，睫毛不乱滑，指针离开页面自动回正。</p></div>
+    <div class="card"><h3>⌨️ 键鼠联动</h3><p>在页面里打字她就敲键盘、点鼠标她就点鼠标——复刻原游戏 listenInputDevice 桌宠行为。</p></div>
+    <div class="card"><h3>💾 自动记忆</h3><p>位置、大小、穿搭全部保存在 localStorage，刷新页面后她还在你放的地方，穿着你挑的衣服。</p></div>
+    <div class="card"><h3>📦 自包含包</h3><p>本目录（runtime / 换装数据 / 模型 / 样式）整体拷走即可部署到任意静态目录或 CDN。</p></div>
+  </div>
+
+  <article>
+    <h2>如何嵌到你自己的网站</h2>
+    <p>整个组件零构建，只需要两行代码。把 <code>waifu-widget/</code> 目录放到网站任意可访问的路径，然后在页面底部加入：</p>
+    <pre><code>&lt;script src="/path/to/waifu-widget/waifu-widget.js" defer&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.addEventListener('DOMContentLoaded', function () {
+    WaifuWidget.mount(); // 可传 { width: 300, x: 40, y: 400, base: 'https://cdn.example.com/waifu-widget/' }
+  });
+&lt;/script&gt;</code></pre>
+    <p>或者使用一行式自动挂载：</p>
+    <pre><code>&lt;script src="/path/to/waifu-widget/waifu-widget.js" data-ycw-auto defer&gt;&lt;/script&gt;</code></pre>
+
+    <h2>试试这些</h2>
+    <blockquote>拖住她移动 → 松手；单击她的身体 → 触碰反应；移动鼠标 → 她的头和眼睛跟着看；在页面上打字 → 她敲键盘；点页面 → 她点鼠标；等 10~20 秒 → 随机小动作；👕 → 换装间；🎲 → 随机穿搭；＋/－ → 缩放；✕ → 收起（右下角可召回）。</blockquote>
+    <p>注意：由于浏览器对 <code>fetch</code> 的限制，请通过 HTTP 服务（如 <code>python -m http.server</code> 或 <code>npx serve</code>）访问本页，直接双击打开 HTML 文件无法加载模型资源。</p>
+
+    <h2>关于这个角色</h2>
+    <p>看板娘模型来自 <strong>Mabbs/your-coworker</strong> 项目解包的 Spine 4.3 骨骼动画（PoseA · 坐姿办公同事，241 个皮肤），渲染基于 spine-webgl，换装规则来自游戏 ItemTable。</p>
+  </article>
+</main>
+
+<footer class="site">
+  Demo page for the draggable web mascot widget · 改造自 Mabbs/your-coworker
+</footer>
+
+<!-- ▼▼▼ 看板娘：嵌入只需下面这一行 ▼▼▼ -->
+<script src="waifu-widget.js" data-ycw-auto defer></script>
+
+</body>
+</html>
