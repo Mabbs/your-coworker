@@ -25,7 +25,9 @@
   'use strict';
 
   const POSE_ID = 'PoseA';
-  const MODEL_DIR = 'models/PoseA/';
+  const DESK_ID = 'DefaultDesk';
+  // 办公桌场景基底皮肤：椅子 / 桌体 / 电脑 + 游戏默认桌面摆件（果汁 / 台灯 / 盆栽）
+  const DESK_BASE = ['default', 'Base_Chair', 'Base_Desk', 'Computer', 'Desktop/Juice', 'DesktopB/DeskLamp', 'UnderDesk/Potted plants'];
   const STORE_KEY = 'ycw:state:v1';
 
   // 与预览器一致的组合基底皮肤（app.js CHAR_BASE）
@@ -119,6 +121,8 @@
       this.base = resolveBase(this.opts.base);
       this.scale = clamp(saved.scale || 1, 0.55, 1.8);
       this.savedOutfit = saved.outfit || null;
+      this.deskOn = saved.deskOn === true;
+      this.deskSkeleton = null;
       this.x = null;
       this.y = null;
       if (Number.isFinite(this.opts.x) && Number.isFinite(this.opts.y)) {
@@ -166,6 +170,7 @@
         '<div class="ycw-dock">' +
           '<button data-act="wardrobe" title="换装">👕</button>' +
           '<button data-act="random" title="随机穿搭">🎲</button>' +
+          '<button data-act="desk" title="办公桌">🖥️</button>' +
           '<div class="ycw-sep"></div>' +
           '<button data-act="zoom-in" title="放大">＋</button>' +
           '<button data-act="zoom-out" title="缩小">－</button>' +
@@ -234,6 +239,9 @@
       this.ready = true;
       this.loadingEl.style.display = 'none';
       this.bindPageEvents();
+      if (this.deskOn && this.deskSkeleton) {
+        this.dock.querySelector('[data-act="desk"]').classList.add('ycw-on');
+      }
       this.applyPose();
       this.scheduleAction(1.6);
       this.lastTime = performance.now();
@@ -279,9 +287,11 @@
     async loadModel() {
       const SPINE = window.spine;
       this.setLoading('正在加载角色模型…');
-      const manager = new SPINE.AssetManager(this.context, this.base + MODEL_DIR);
-      manager.loadTextureAtlas(POSE_ID + '.atlas');
-      manager.loadBinary(POSE_ID + '.skel');
+      const manager = new SPINE.AssetManager(this.context, this.base + 'models/');
+      manager.loadTextureAtlas(POSE_ID + '/' + POSE_ID + '.atlas');
+      manager.loadBinary(POSE_ID + '/' + POSE_ID + '.skel');
+      manager.loadTextureAtlas(DESK_ID + '/' + DESK_ID + '.atlas');
+      manager.loadBinary(DESK_ID + '/' + DESK_ID + '.skel');
       // 极端情况下（如 WebGL 上下文丢失）loadAll 的回调永远不会完成；
       // 用超时看门狗兜底，由 boot 重建画布后自动重试
       const watchdog = new Promise((_, reject) => {
@@ -295,8 +305,8 @@
       if (manager.hasErrors()) {
         throw new Error(Object.values(manager.getErrors()).map((e) => e.message || String(e)).join('；'));
       }
-      const atlas = manager.require(POSE_ID + '.atlas');
-      const binary = manager.require(POSE_ID + '.skel');
+      const atlas = manager.require(POSE_ID + '/' + POSE_ID + '.atlas');
+      const binary = manager.require(POSE_ID + '/' + POSE_ID + '.skel');
       this.manager = manager;
 
       const data = new SPINE.SkeletonBinary(new SPINE.AtlasAttachmentLoader(atlas, true)).readSkeletonData(binary);
@@ -367,6 +377,26 @@
         }
       }
 
+      // 办公桌场景骨架（椅子 + 桌体 + 电脑）。
+      // DefaultDesk 与 PoseA 在游戏里挂在同一父节点下，骨架坐标空间一致，零偏移叠加即可。
+      try {
+        const deskAtlas = manager.require(DESK_ID + '/' + DESK_ID + '.atlas');
+        const deskBinary = manager.require(DESK_ID + '/' + DESK_ID + '.skel');
+        const deskData = new SPINE.SkeletonBinary(new SPINE.AtlasAttachmentLoader(deskAtlas, true)).readSkeletonData(deskBinary);
+        const desk = new SPINE.Skeleton(deskData);
+        const deskSkin = new SPINE.Skin('desk');
+        for (const name of DESK_BASE) {
+          const skin = deskData.findSkin(name);
+          if (skin) deskSkin.addSkin(skin);
+        }
+        desk.setSkin(deskSkin);
+        desk.setupPose();
+        desk.updateWorldTransform(SPINE.Physics.pose);
+        this.deskSkeleton = desk;
+      } catch (_) {
+        this.deskSkeleton = null; // 桌子资源缺失时仅隐藏办公桌按钮场景
+      }
+
       // 换装分组：优先 ItemTable，失败则按皮肤名扫描
       if (window.CostumeService) {
         this.costume = new window.CostumeService(this.base);
@@ -393,10 +423,48 @@
         }
       }
       this.applyAppearance();
+      this.alignDeskToChair();
       this.renderPanel();
       this.computeContentBounds();
       this.setStageSize();
       this.placeInitial();
+    }
+
+    // 办公桌对齐：角色骨架自带 Chair_01/02/03 椅子槽位（一直渲染在她身后），
+    // 以桌子的 Chair 槽位包围盒中心对准她椅子的包围盒中心，
+    // 然后隐藏桌子侧椅子（保留角色自带的），桌子其余部件画在角色前面。
+    alignDeskToChair() {
+      const SPINE = window.spine;
+      const desk = this.deskSkeleton;
+      if (!desk) return;
+      const keepBounds = (skeleton, keep) => {
+        const hidden = [];
+        for (const slot of skeleton.slots) {
+          const att = slot.pose.getAttachment();
+          if (att && !keep(slot)) { hidden.push([slot, att]); slot.pose.setAttachment(null); }
+        }
+        skeleton.updateWorldTransform(SPINE.Physics.pose);
+        const b = skeleton.getBoundsRect();
+        for (const [slot, att] of hidden) slot.pose.setAttachment(att);
+        skeleton.updateWorldTransform(SPINE.Physics.pose);
+        return b && isFinite(b.width) && b.width > 0 ? b : null;
+      };
+      const girlChair = keepBounds(this.skeleton, (s) => /Chair/i.test(s.data.name));
+      const deskChair = keepBounds(desk, (s) => s.data.name === 'Chair');
+      if (girlChair && deskChair) {
+        desk.x = (girlChair.x + girlChair.width / 2) - (deskChair.x + deskChair.width / 2);
+        desk.y = (girlChair.y + girlChair.height / 2) - (deskChair.y + deskChair.height / 2);
+      }
+      // 垂直精调：以「键盘贴合桌面」为准（角色键盘在 臉部配件/key 槽位），
+      // 桌面上表面顶边对齐键盘底边，消除浮空感
+      const keyboard = keepBounds(this.skeleton, (s) => s.data.name === '臉部配件/key');
+      const surface = keepBounds(desk, (s) => s.data.name === 'desk');
+      if (keyboard && surface) {
+        desk.y += keyboard.y - (surface.y + surface.height);
+      }
+      const chairSlot = desk.slots.find((s) => s.data.name === 'Chair');
+      if (chairSlot) chairSlot.pose.setAttachment(null);
+      desk.updateWorldTransform(SPINE.Physics.pose);
     }
 
     // 无 ItemTable 时的兜底：按皮肤名前缀扫描分组（与预览器 buildCharGroups 同规则）
@@ -713,6 +781,16 @@
       }
       this.applyPose();
       sample();
+      // 办公桌开启时并入桌子包围盒（桌子静止，取当前姿势即可）
+      if (this.deskOn) {
+        const db = this.deskBounds();
+        if (db) {
+          minX = Math.min(minX, db.x);
+          minY = Math.min(minY, db.y);
+          maxX = Math.max(maxX, db.x + db.width);
+          maxY = Math.max(maxY, db.y + db.height);
+        }
+      }
       if (!isFinite(minX)) return;
       // 余量换算：先用采样结果估计 zoom（世界单位/画布像素），再折算屏幕像素
       const vw = Math.max(1, this.canvas.width);
@@ -1074,7 +1152,10 @@
       gl.clearColor(0, 0, 0, 0);
       gl.clear(gl.COLOR_BUFFER_BIT);
       this.renderer.begin();
+      // 角色先画（她自带的椅子在其骨架内部、位于身体后侧），
+      // 办公桌后画：桌面 / 电脑 / 摆件在她前面，形成"坐在桌后"的构图
       this.renderer.drawSkeleton(this.skeleton);
+      if (this.deskOn && this.deskSkeleton) this.renderer.drawSkeleton(this.deskSkeleton);
       this.renderer.end();
     }
 
@@ -1095,11 +1176,33 @@
       const act = button.dataset.act;
       if (act === 'wardrobe') this.togglePanel();
       else if (act === 'random') this.randomizeOutfit();
+      else if (act === 'desk') this.toggleDesk();
       else if (act === 'zoom-in') this.setScale(this.scale * 1.15);
       else if (act === 'zoom-out') this.setScale(this.scale / 1.15);
       else if (act === 'hide') this.hide();
       else if (act === 'close-panel') this.togglePanel(false);
       else if (act === 'reset-outfit') this.resetOutfit();
+    }
+
+    // 办公桌开关：桌子部件画在角色前面，取景范围并入桌子包围盒
+    toggleDesk(force) {
+      if (!this.deskSkeleton) {
+        this.say('办公桌资源不可用', 2200);
+        return;
+      }
+      this.deskOn = force !== undefined ? force : !this.deskOn;
+      this.dock.querySelector('[data-act="desk"]').classList.toggle('ycw-on', this.deskOn);
+      this.computeContentBounds();
+      this.setStageSize();
+      this.persist();
+      this.say(this.deskOn ? '搬来办公桌，一起上班～' : '桌子搬走啦～', 2200);
+    }
+
+    deskBounds() {
+      if (!this.deskSkeleton) return null;
+      this.deskSkeleton.updateWorldTransform(window.spine.Physics.pose);
+      const b = this.deskSkeleton.getBoundsRect();
+      return b && isFinite(b.width) && b.width > 0 ? b : null;
     }
 
     setScale(scale) {
@@ -1140,7 +1243,7 @@
     /* ---------- 持久化 ---------- */
 
     persist() {
-      storeWrite({ x: this.x, y: this.y, scale: this.scale, outfit: this.outfit });
+      storeWrite({ x: this.x, y: this.y, scale: this.scale, outfit: this.outfit, deskOn: this.deskOn });
     }
 
     /* ---------- 卸载 ---------- */

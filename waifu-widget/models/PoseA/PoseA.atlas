@@ -1,4 +1,4 @@
-PoseA.png
+PoseA.webp
 size:4488,4412
 filter:Linear,Linear
 ArmL_01
@@ -1007,7 +1007,7 @@ key
 bounds:1499,3517,453,26
 offsets:1,1,455,28
 
-PoseA_2.png
+PoseA_2.webp
 size:4364,4356
 filter:Linear,Linear
 ArmL_00
@@ -1838,7 +1838,7 @@ bounds:1933,1941,113,233
 Tail
 bounds:2347,694,278,546
 
-PoseA_3.png
+PoseA_3.webp
 size:692,4144
 filter:Linear,Linear
 ArmR_Hand_Keying
